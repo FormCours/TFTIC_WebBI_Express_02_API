@@ -6,7 +6,7 @@ export default (router) => {
         .get(todoController.getAll)
         .post(todoController.insert);
 
-    router.route('/todo/:id[0-9]+')
+    router.route('/todo/:id([0-9]+)')
         .get(todoController.getOne)
         .put(todoController.update)
         .delete(todoController.delete);
