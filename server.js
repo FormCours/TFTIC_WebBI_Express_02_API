@@ -1,19 +1,12 @@
 import express from "express";
-import serverConfig from './config/server.json';
 import router from "./routes/index.js";
+import config from "./config/index.js";
 
 // Création du server API
 const app = express();
 
 // Chargement du fichier de config
-let config;
-if(process.argv.includes('--production')) {
-    config = serverConfig.production;
-}
-else {
-    config = serverConfig.developement;
-}
-const {port, mode, dbConnection} = config;
+const {port, mode} = config.load();
 
 // Ajout du middleware pour manipuler des données Json
 app.use(express.json())  // -> "application/json"

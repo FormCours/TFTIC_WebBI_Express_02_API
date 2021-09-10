@@ -8,5 +8,10 @@
         "mode": "prod",
         "port" : 5123,
         "dbConnection": "???"
+    },
+    "local" : {
+        "mode": "local",
+        "port" : 5555,
+        "dbConnection": "???"
     }
 }
