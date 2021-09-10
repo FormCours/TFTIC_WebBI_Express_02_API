@@ -2,6 +2,7 @@ const people = [
     {id: 1, firstname: 'Zaza', lastname: 'Vanderquack'},
     {id: 2, firstname: 'Riri', lastname: 'Duck'}
 ];
+let lastId = 2;
 
 export const getAll = (req, res) => {
     res.status(200).json(people);
@@ -9,8 +10,10 @@ export const getAll = (req, res) => {
 
 export const add = (req, res) => {
     // Note : Il faut vérifier les donnes avant de les ajouter ;)
-    const nextId = Math.max(...people.map(p => p.id)) + 1;
-    people.push({id: nextId, ...req.body});
+    const nextId = ++lastId;
+    const {firstname, lastname} = req.body;
+    
+    people.push({id: nextId, firstname, lastname});
 
     res.status(200).json({id: nextId});
 }
