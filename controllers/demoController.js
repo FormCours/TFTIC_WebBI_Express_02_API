@@ -35,7 +35,17 @@ export const update = (req, res) => {
 }
 
 export const deleteOne = (req, res) => {
-    res.sendStatus(501);
+    const id = parseInt(req.params.id);
+
+    const indexToDelete = people.findIndex(p => p.id === id);
+
+    if(indexToDelete > 0) {
+        people.splice(indexToDelete, 1);
+        res.sendStatus(204);
+    }
+    else {
+        res.sendStatus(400);
+    }
 }
 
 export default {
