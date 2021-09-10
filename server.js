@@ -1,6 +1,6 @@
 import express from "express";
 import serverConfig from './config/server.json';
-
+import router from "./routes/index.js";
 
 // Création du server API
 const app = express();
@@ -17,6 +17,9 @@ const {port, mode, dbConnection} = config;
 
 // Ajout du middleware pour manipuler des données Json
 app.use(express.json())  // -> "application/json"
+
+// Ajout du router
+app.use(router);
 
 // Demarrer le server
 app.listen(port, () => {
