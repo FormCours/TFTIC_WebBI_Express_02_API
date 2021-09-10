@@ -1,0 +1,33 @@
+{
+  "name": "demo_express_02_api",
+  "version": "1.0.0",
+  "description": "Demo d'une Web API avec Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --experimental-json-modules server.js",
+    "prod": "node --experimental-json-modules server.js --production"
+  },
+  "keywords": [
+    "TFTIC",
+    "Demo",
+    "WebAPI"
+  ],
+  "author": "Aurélien",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormCours/TFTIC_WebBI_Express_02_API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FormCours/TFTIC_WebBI_Express_02_API/issues"
+  },
+  "homepage": "https://github.com/FormCours/TFTIC_WebBI_Express_02_API#readme"
+}
