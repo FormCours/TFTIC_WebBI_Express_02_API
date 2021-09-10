@@ -1,4 +1,5 @@
 import express from "express";
+import mysql from "promise-mysql";
 import router from "./routes/index.js";
 import config from "./config/index.js";
 
@@ -6,7 +7,18 @@ import config from "./config/index.js";
 const app = express();
 
 // Chargement du fichier de config
-const {port, mode} = config.load();
+const {port, mode, dbConnection} = config.load();
+
+// Test si la connection à la base est fonctionnel
+mysql.createConnection(dbConnection)
+    .then(connection => {
+        connection.end();
+    })
+    .catch(e => {
+        console.log('The configuration of MySQL is in error :( ');
+        console.log('Error message : ' + e.sqlMessage);
+        process.exit();
+    });
 
 // Ajout du middleware pour manipuler des données Json
 app.use(express.json())  // -> "application/json"
